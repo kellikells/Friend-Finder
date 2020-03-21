@@ -1,7 +1,7 @@
 var usersArray = [
     {
         'name': '',
-        'photo': '',
+        'picture': '',
         'scores':[]
     }
 ]

@@ -17,6 +17,12 @@
 
     <!--MY CSS -->
     <link rel='stylesheet' type='text/css' href='../../assets/css/style.css'>
+
+    <!-- Link to jQuery  -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <!-- Link to Moment.js  -->
+    <script src='https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js'></script>
 </head>
 
 <body>
@@ -40,7 +46,7 @@
                 <h3>Question 1</h3>
                 <label for='q1'> Summer is better than Winter: </label>
                 <br>
-                <select id='q1' required>
+                <select id='q1' name='q1' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -53,7 +59,7 @@
                 <h3> Question 2</h3>
                 <label for='q2'> DoorDash/PostMates/UberEats is better than going out to eat: </label>
                 <br>
-                <select id='q2' required>
+                <select id='q2' name='q2' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -66,7 +72,7 @@
                 <h3>Question 3 </h3>
                 <label for='q3'> You consider yourself an outdoors person: </label>
                 <br>
-                <select id='q3' required>
+                <select id='q3' name='q3' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -75,11 +81,11 @@
                     <option value='5'>5 (Agree)</option>
                 </select>
             </div>
-            <div class='form-group'>
+            <!-- <div class='form-group'>
                 <h3>Question 4 </h3>
                 <label for='q4'> You consider yourself a morning person: </label>
                 <br>
-                <select id='q4' required>
+                <select id='q4' name='q4' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -92,7 +98,7 @@
                 <h3>Question 5 </h3>
                 <label for='q5'> You like pets: </label>
                 <br>
-                <select id='q5' required>
+                <select id='q5' name='q5' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -105,7 +111,7 @@
                 <h3>Question 6</h3>
                 <label for='q6'> You are a neatfreak: </label>
                 <br>
-                <select id='q6' required>
+                <select id='q6' name='q6' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -118,7 +124,7 @@
                 <h3> Question 7</h3>
                 <label for='q7'> You are a heavy sleeper: </label>
                 <br>
-                <select id='q7' required>
+                <select id='q7' name='q7' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -131,7 +137,7 @@
                 <h3>Question 8 </h3>
                 <label for='q8'> You are a good driver: </label>
                 <br>
-                <select id='q8' required>
+                <select id='q8' name='q8' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -144,7 +150,7 @@
                 <h3>Question 9 </h3>
                 <label for='q9'> You are a useful person: </label>
                 <br>
-                <select id='q9' required>
+                <select id='q9' name='q9' required>
                     <option value></option>
                     <option value='1'>1 (SEVERELY Disagree)</option>
                     <option value='2'>2</option>
@@ -157,7 +163,7 @@
                 <h3>Question 10 </h3>
                 <label for='q10'> You answered honestly-ish: </label>
                 <br>
-                <select id='q10' required>
+                <select id='q10' name='q10' required>
                     <option value></option>
                     <option value='1'>1 (Strong Disagree)</option>
                     <option value='2'>2</option>
@@ -165,11 +171,11 @@
                     <option value='4'>4</option>
                     <option value='5'>5 (Agree)</option>
                 </select>
-            </div>
+            </div> -->
 
 
             <!-- SUBMIT BUTTON  -->
-            <button type='button' class='btn btn-primary btn-lg btn-block'>Submit</button>
+            <button type='button' class='btn btn-primary btn-lg btn-block' id='submit'>Submit</button>
 
         </form>
 
@@ -183,15 +189,46 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- Link to jQuery  -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-    <!-- Link to Moment.js  -->
-    <script src='https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js'></script>
-
 </body>
+
+<script type='text/javascript'>
+
+    // object constructor for each User Survey 
+    function Friend(name, picture, scores) {
+        this.name = name;
+        this.picture = picture;
+        this.scoresArray = scores;
+    }
+
+    $('#submit').on('click', function (event) {
+        event.preventDefault();
+
+        var scoresArray = [];
+
+        function scores() {
+            let i = 1;
+            while (i < 4) {
+                let oneValue = $('#q' + i + '').val();
+                i++;
+                scoresArray.push(oneValue);
+            }
+            return scoresArray;
+        }
+        scores();
+
+        new Friend($('#name').val().trim(), $('#picture').val().trim(), scoresArray);
+
+        // serializeArray method 
+        // console.log($('form').serializeArray());
+
+    }
+    );
+
+
+
+
+</script>
 
 </html>
