@@ -2,7 +2,8 @@
 // ================ DEPENDENCIES ===============
 var express = require('express');
 var path = require('path');
-
+var http = require('http');
+var PORT = process.env.PORT || 8080;
 
 // ================= EXPRESS ==================
 // ---------- creates "express" server ----------
@@ -21,8 +22,8 @@ require('./app/routing/htmlRoutes')(app);
 
 // ============= PORT & LISTENER ===============
 //             STARTING THE SERVER 
-var PORT = process.env.PORT || 8080;
+
 
 app.listen(PORT, function () {
-    console.log(`App listening on Port: ${Port}`);
+    console.log(`App listening on PORT: ${PORT}`);
 });

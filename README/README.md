@@ -5,7 +5,7 @@ Presents user with a survey and response options (1-5), upon submission the app 
 ============================================================
 ## Technologies utilized:
 - jquery
-- serializeArray method
+<!-- - serializeArray method -->
 - export & require other files
 - express package
 - path package
