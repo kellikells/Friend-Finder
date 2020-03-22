@@ -204,7 +204,6 @@
         this.scoresArray = scores;
     }
 
-
     function scores() {
         let i = 1;
         while (i < 4) {
@@ -215,23 +214,37 @@
         return scoresArray;
     }
 
+    // ----- function: add scores together
+    var scoreTotal = 0;
+    function getScoreTotal() {
+        for (let i = 0; i < scoresArray.length; i++) {
+            scoreTotal += (parseInt(scoresArray[i]));
+        }
+    }
+
     $('#submit').on('click', function (event) {
         event.preventDefault();
         scores();
-        // var user = $('#name').val();
+        getScoreTotal();
+        console.log(scoresArray);
+        console.log(scoreTotal);
 
-       var user = new Friend($('#name').val().trim(), $('#picture').val().trim(), scoresArray);
+        // --- creating the object of data from the survey
+        var user = new Friend($('#name').val().trim(), $('#picture').val().trim(), scoresArray);
 
-        console.log(user);
-        console.log(`name: ${user.name}`);
-
-        // serializeArray method 
-        // console.log($('form').serializeArray());
 
         // POST : (route "url", object to send, callback) 
         // the CALLBACK is the server's response: in apiRoutes that returns compatable match
-$.post
+        $.post('/api/friends', user,
+            function (compatable) {
+                if (compatable) {
+                    // modal of compatable data
+                    alert(`compatable`);
+                }
+            });
 
+
+      
     });
 
 
