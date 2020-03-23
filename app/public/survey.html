@@ -39,7 +39,8 @@
             </div>
             <div class='form-group'>
                 <label for='picture'>Link to Photo Image (Required) </label>
-                <input type='text' class='form-control' id='picture' required>
+                <input type='url' name='url' placeholder='https://example.jpg' class='form-control' id='picture'
+                    required>
             </div>
 
             <fieldset>
@@ -198,37 +199,30 @@
 
         <!-- MODAL -->
 
-        <div class="modal fade" id='myModal' role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id='friendName'></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" id='friendPicture'>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <p id='friendName'></p>
         </div>
-    </div>
+        <div>
+            <img id='friendPicture'></img>
+        </div>
 
+
+    </div>
 
 </body>
 
 <script type='text/javascript'>
 
-
     var scores = [];
     var usersScoreArray = [];
 
     // object constructor for each User Survey 
-    function Friend(name, picture, scores, total) {
+    function Friend(name, picture, total, scores) {
         this.name = name;
         this.picture = picture;
-        this.scores = scores;
         this.scoreTotal = total;
+        this.scores = scores;
+
     }
 
     // ----- function: puts scores into an array
@@ -251,11 +245,58 @@
         console.log(`current user score TOTAL: ${scoreTotal}`);
     }
 
+
+    // ----- Resets the Page
+    function resetForm() {
+        $('#name').val('');
+        $('#picture').val('');
+        $('select').each(function () {
+            $(this).val($(this).find("option[selected]").val());
+        });
+        scores = [];
+        usersScoreArray = [];
+    }
+
+    // ================= FUNCTION: SUBMIT FORM ===============
+    // -------------------------------------------------------
+    $('#myButton').on('click', function (event) {
+        event.preventDefault();
+        getScoresArray();
+        getScoreTotal();
+
+        // --- creating the object of data from the survey
+        var user = new Friend($('#name').val().trim(), $('#picture').val().trim(), scoreTotal, scores);
+
+        // POST : (route "url", object to send, callback) 
+        // the CALLBACK is the server's response: in apiRoutes that returns compatable match
+        $.post('/api/friends', user, function (response) {
+
+            console.log(`response from POST request: ${response}`);
+
+            $('#friendName').text(response.name);
+            $('#friendPicture').attr({
+                'src': response.picture,
+                'alt': response.name
+            });
+
+            // applying response from apiRoutes to modal
+            // $('#friendName').text(response.name);
+            // $('#friendPicture').attr('src', response.picture);
+
+            // showing the hidden modal
+            // $('#myModal').modal('toggle');
+        });
+
+        resetForm();
+
+
+    });
+
+
+
     // ----- AJAX function: GET data to compare with current user
     var differencesArray = [];
     var otherTotal = 0;
-
-
     function friendQuery() {
         $.ajax({ url: '/api/friends', method: 'GET' })
             .then(function (usersData) {
@@ -284,40 +325,6 @@
 
             })
     }
-
-
-
-    $('#myButton').on('click', function (event) {
-        event.preventDefault();
-        getScoresArray();
-        getScoreTotal();
-
-        // --- creating the object of data from the survey
-        var user = new Friend($('#name').val().trim(), $('#picture').val().trim(), scores, scoreTotal);
-
-
-
-        // POST : (route "url", object to send, callback) 
-        // the CALLBACK is the server's response: in apiRoutes that returns compatable match
-        $.post('/api/friends', user, function (response) {
-
-
-            console.log(`response from POST request: ${response}`);
-            // applying response from apiRoutes to modal
-            // $('#friendName').text(response.name);
-            // $('#friendPicture').attr('src', response.picture);
-
-            // showing the hidden modal
-            // $('#myModal').modal('toggle');
-        });
-
-        // ----- Empties the form 
-        $('#name').val('');
-        $('#picture').val('');
-        $('select').each(function () {
-            $(this).val($(this).find("option[selected]").val());
-        });
-    });
 
 
 
