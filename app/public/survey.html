@@ -189,67 +189,131 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- MODAL -->
+
+        <div class="modal fade" id='myModal' role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id='friendName'></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id='friendPicture'>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
 </body>
 
 <script type='text/javascript'>
 
-    var scoresArray = [];
+
+    var scores = [];
+    var usersScoreArray = [];
 
     // object constructor for each User Survey 
-    function Friend(name, picture, scores) {
+    function Friend(name, picture, scores, total) {
         this.name = name;
         this.picture = picture;
-        this.scoresArray = scores;
+        this.scores = scores;
+        this.scoreTotal = total;
     }
 
-    function scores() {
+    // ----- function: puts scores into an array
+    function getScoresArray() {
         let i = 1;
         while (i < 4) {
             let oneValue = $('#q' + i + '').val();
             i++;
-            scoresArray.push(oneValue);
+            scores.push(oneValue);
         }
-        return scoresArray;
+        return scores;
+        console.log(`current user scores: ${scores}`);
     }
 
-    // ----- function: add scores together
+    // ----- function: add scores 
     var scoreTotal = 0;
     function getScoreTotal() {
-        for (let i = 0; i < scoresArray.length; i++) {
-            scoreTotal += (parseInt(scoresArray[i]));
+        for (let i = 0; i < scores.length; i++) {
+            scoreTotal += (parseInt(scores[i]));
         }
+        console.log(`current user score TOTAL: ${scoreTotal}`);
     }
+
+    // ----- AJAX function: GET data to compare with current user
+    var differencesArray = [];
+    var otherTotal = 0;
+
+    function friendQuery() {
+        $.ajax({ url: '/api/friends', method: 'GET' })
+            .then(function (usersData) {
+                console.log(usersData);
+                for (let i = 0; i < usersData.length; i++) {
+                    console.log(usersData[i].scoreTotal);
+                    otherTotal = Math.abs(scoreTotal - (usersData[i].scoreTotal));
+                    differencesArray.push(otherTotal);
+                }
+                console.log(differencesArray);
+
+                var x;
+                var z = 0;
+                // while loop
+                while (x != z) {
+                    //for ... of loop
+                    for (x of differencesArray) {
+                        if (x === z) {
+                            console.log(`found match`);
+
+                        } else {
+                            z++;
+                        }
+                    }
+                }
+
+            })
+    }
+
+
 
     $('#submit').on('click', function (event) {
         event.preventDefault();
-        scores();
+        getScoresArray();
         getScoreTotal();
-        console.log(scoresArray);
-        console.log(scoreTotal);
 
         // --- creating the object of data from the survey
-        var user = new Friend($('#name').val().trim(), $('#picture').val().trim(), scoresArray);
+        var user = new Friend($('#name').val().trim(), $('#picture').val().trim(), scores, scoreTotal);
 
+        // friendQuery();
 
         // POST : (route "url", object to send, callback) 
         // the CALLBACK is the server's response: in apiRoutes that returns compatable match
-        $.post('/api/friends', user,
-            function (compatable) {
-                if (compatable) {
-                    // modal of compatable data
-                    alert(`compatable`);
-                }
-            });
+        $.post('/api/friends', user, function (response) {
 
+            console.log(response);
+            // applying response from apiRoutes to modal
+            // $('#friendName').text(response.name);
+            // $('#friendPicture').attr('src', response.picture);
 
-      
+            // showing the hidden modal
+            // $('#myModal').modal('toggle');
+        });
+
+        // ----- Empties the form 
+        $('#name').val('');
+        $('#picture').val('');
     });
 
 
 
-
 </script>
+
+
 
 </html>

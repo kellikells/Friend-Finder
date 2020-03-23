@@ -21,21 +21,28 @@ module.exports = function (app) {
         // adding the user's survey to all the data
         friends.push(req.body);
 
-        res.json;
+        // saving index of the user's data
+        var x = (friends.length - 1);
 
+        for (let i = 0; i < friends.length; i++) {
+            // console.log(friends[i].scoreTotal);
+            otherTotal = Math.abs(friends[x].scoreTotal - (friends[i].scoreTotal));
 
-
-
+            if (otherTotal === 0) {
+                res.json(friends[i]);
+            } else {
+                res.json('no match');
+            }
+        }
     });
 
+    // Empty out the arrays of data
     app.post("/api/clear", function (req, res) {
-        // Empty out the arrays of data
-        // tableData.length = 0;
-        waitListData.length = 0;
-
+        friends.length = 0;
         res.json({ ok: true });
     });
 }
+
 
 
 

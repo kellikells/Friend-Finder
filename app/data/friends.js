@@ -1,10 +1,11 @@
 
 var usersArray = [
-    {
-        'name': '',
-        'picture': '',
-        'scores':[]
-    }
+    // {
+    //     'name': '',
+    //     'picture': '',
+    //     'scores': [],
+    //     'scoreTotal': ''
+    // }
 ]
 
 // ================== EXPORTING THE ARRAY ==================
