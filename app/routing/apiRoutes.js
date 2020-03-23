@@ -25,13 +25,15 @@ module.exports = function (app) {
         var x = (friends.length - 1);
 
         for (let i = 0; i < friends.length; i++) {
-            // console.log(friends[i].scoreTotal);
-            otherTotal = Math.abs(friends[x].scoreTotal - (friends[i].scoreTotal));
 
-            if (otherTotal === 0) {
+            if (Math.abs(friends[x].scoreTotal - (friends[i].scoreTotal)) === 0) {
+                console.log(`friend match: ${friends[i].name}`);
+
                 res.json(friends[i]);
+                return;
             } else {
                 res.json('no match');
+                return;
             }
         }
     });

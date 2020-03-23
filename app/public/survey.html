@@ -235,7 +235,6 @@
             scores.push(oneValue);
         }
         return scores;
-        console.log(`current user scores: ${scores}`);
     }
 
     // ----- function: add scores 
@@ -270,7 +269,7 @@
                     for (x of differencesArray) {
                         if (x === z) {
                             console.log(`found match`);
-
+                            var a = differencesArray.indexOf(x);
                         } else {
                             z++;
                         }
@@ -296,7 +295,7 @@
         // the CALLBACK is the server's response: in apiRoutes that returns compatable match
         $.post('/api/friends', user, function (response) {
 
-            console.log(response);
+            console.log(`response from POST request: ${response}`);
             // applying response from apiRoutes to modal
             // $('#friendName').text(response.name);
             // $('#friendPicture').attr('src', response.picture);
