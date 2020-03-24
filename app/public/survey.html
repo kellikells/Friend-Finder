@@ -32,6 +32,7 @@
         <hr>
         <h3>About You</h3>
 
+        <!-- ================= FORM ================= -->
         <form role='form'>
             <div class='form-group'>
                 <label for='name'>Name (required) </label>
@@ -185,7 +186,7 @@
 
         </form>
 
-        <!-- FOOTER  -->
+        <!-- =============== FOOTER ================== -->
         <div class='container'>
             <div class='row'>
                 <div class='col-4'>
@@ -196,14 +197,18 @@
             </div>
         </div>
 
+        <!-- ================= MODAL ================= -->
 
-        <!-- MODAL -->
-
-        <div>
-            <p id='friendName'></p>
-        </div>
-        <div>
-            <img id='friendPicture'></img>
+        <div id='myModal' class='modal'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h2>Your Friend Match!</h2>
+                </div>
+                <div class='modal-body'>
+                    <p id='friendName'></p>
+                    <img id='friendPicture'></img>
+                </div>
+            </div>
         </div>
 
 
@@ -215,6 +220,7 @@
 
     var scores = [];
     var usersScoreArray = [];
+    var scoreTotal = 0;
 
     // object constructor for each User Survey 
     function Friend(name, picture, total, scores) {
@@ -237,7 +243,7 @@
     }
 
     // ----- function: add scores 
-    var scoreTotal = 0;
+
     function getScoreTotal() {
         for (let i = 0; i < scores.length; i++) {
             scoreTotal += (parseInt(scores[i]));
@@ -255,6 +261,7 @@
         });
         scores = [];
         usersScoreArray = [];
+        scoreTotal = 0;
     }
 
     // ================= FUNCTION: SUBMIT FORM ===============
@@ -273,22 +280,20 @@
 
             console.log(`response from POST request: ${response}`);
 
+
+
+            // --- add response to modal ---
             $('#friendName').text(response.name);
             $('#friendPicture').attr({
                 'src': response.picture,
                 'alt': response.name
             });
 
-            // applying response from apiRoutes to modal
-            // $('#friendName').text(response.name);
-            // $('#friendPicture').attr('src', response.picture);
+            $('#myModal').show();
 
-            // showing the hidden modal
-            // $('#myModal').modal('toggle');
         });
 
         resetForm();
-
 
     });
 
