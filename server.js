@@ -1,8 +1,8 @@
 
 // ================ DEPENDENCIES ===============
-var express = require('express');
-var path = require('path');
-var http = require('http');
+var express = require("express");
+var path = require("path");
+var http = require("http");
 var PORT = process.env.PORT || 8080;
 
 // ================= EXPRESS ==================
@@ -16,8 +16,8 @@ app.use(express.json());
 
 // ================== ROUTER ===================
 //(require the exported module for future use)
-require('./app/routing/apiRoutes')(app);
-require('./app/routing/htmlRoutes')(app);
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 
 // ============= PORT & LISTENER ===============

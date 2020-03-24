@@ -1,212 +1,224 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder</title>
 
     <!-- reset css -->
-    <link rel='stylesheet' href='../../assets/css/reset.css'>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
     <!-- Bootstrap CSS -->
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
-        integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- google fonts -->
 
-    <!--MY CSS -->
-    <link rel='stylesheet' type='text/css' href='../../assets/css/style.css'>
-
     <!-- Link to jQuery  -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Link to Moment.js  -->
-    <script src='https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js'></script>
+    <!-- bootstrap  -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
-    <div class='container'>
+    <div class="container">
         <h1>Survey Questions</h1>
         <hr>
         <h3>About You</h3>
 
         <!-- ================= FORM ================= -->
-        <form role='form'>
-            <div class='form-group'>
-                <label for='name'>Name (required) </label>
-                <input type='text' class='form-control' id='name' required>
+        <form role="form">
+            <div class="form-group">
+                <label for="name">Name (required) </label>
+                <input type="text" class="form-control" id="name" required>
             </div>
-            <div class='form-group'>
-                <label for='picture'>Link to Photo Image (Required) </label>
-                <input type='url' name='url' placeholder='https://example.jpg' class='form-control' id='picture'
+            <div class="form-group">
+                <label for="picture">Link to Photo Image (Required) </label>
+                <input type="url" name="url" placeholder="https://example.jpg" class="form-control" id="picture"
                     required>
             </div>
 
             <fieldset>
                 <legend>Friend Questions</legend>
-                <div class='form-group'>
+                <div class="form-group">
                     <h3>Question 1</h3>
-                    <label for='q1'> Summer is better than Winter: </label>
+                    <label for="q1"> Summer is better than Winter: </label>
                     <br>
-                    <select id='q1' name='q1' required>
+                    <select id="q1" name="q1" required>
                         <option value></option>
-                        <option value='1'>1 (SEVERELY Disagree)</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5 (Agree)</option>
+                        <option value="1">1 (SEVERELY Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Agree)</option>
                     </select>
                 </div>
-                <div class='form-group'>
+                <div class="form-group">
                     <h3> Question 2</h3>
-                    <label for='q2'> DoorDash/PostMates/UberEats is better than going out to eat: </label>
+                    <label for="q2"> DoorDash/PostMates/UberEats is better than going out to eat: </label>
                     <br>
-                    <select id='q2' name='q2' required>
+                    <select id="q2" name="q2" required>
                         <option value></option>
-                        <option value='1'>1 (SEVERELY Disagree)</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5 (Agree)</option>
+                        <option value="1">1 (SEVERELY Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Agree)</option>
                     </select>
                 </div>
-                <div class='form-group'>
+                <div class="form-group">
                     <h3>Question 3 </h3>
-                    <label for='q3'> You consider yourself an outdoors person: </label>
+                    <label for="q3"> You consider yourself an outdoors person: </label>
                     <br>
-                    <select id='q3' name='q3' required>
+                    <select id="q3" name="q3" required>
                         <option value></option>
-                        <option value='1'>1 (SEVERELY Disagree)</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5 (Agree)</option>
+                        <option value="1">1 (SEVERELY Disagree)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (Agree)</option>
                     </select>
                 </div>
-                <!-- <div class='form-group'>
+                <!-- <div class="form-group">
                 <h3>Question 4 </h3>
-                <label for='q4'> You consider yourself a morning person: </label>
+                <label for="q4"> You consider yourself a morning person: </label>
                 <br>
-                <select id='q4' name='q4' required>
+                <select id="q4" name="q4" required>
                     <option value></option>
-                    <option value='1'>1 (SEVERELY Disagree)</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5 (Agree)</option>
+                    <option value="1">1 (SEVERELY Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Agree)</option>
                 </select>
             </div>
-            <div class='form-group'>
+            <div class="form-group">
                 <h3>Question 5 </h3>
-                <label for='q5'> You like pets: </label>
+                <label for="q5"> You like pets: </label>
                 <br>
-                <select id='q5' name='q5' required>
+                <select id="q5" name="q5" required>
                     <option value></option>
-                    <option value='1'>1 (SEVERELY Disagree)</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5 (Agree)</option>
+                    <option value="1">1 (SEVERELY Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Agree)</option>
                 </select>
             </div>
-            <div class='form-group'>
+            <div class="form-group">
                 <h3>Question 6</h3>
-                <label for='q6'> You are a neatfreak: </label>
+                <label for="q6"> You are a neatfreak: </label>
                 <br>
-                <select id='q6' name='q6' required>
+                <select id="q6" name="q6" required>
                     <option value></option>
-                    <option value='1'>1 (SEVERELY Disagree)</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5 (Agree)</option>
+                    <option value="1">1 (SEVERELY Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Agree)</option>
                 </select>
             </div>
-            <div class='form-group'>
+            <div class="form-group">
                 <h3> Question 7</h3>
-                <label for='q7'> You are a heavy sleeper: </label>
+                <label for="q7"> You are a heavy sleeper: </label>
                 <br>
-                <select id='q7' name='q7' required>
+                <select id="q7" name="q7" required>
                     <option value></option>
-                    <option value='1'>1 (SEVERELY Disagree)</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5 (Agree)</option>
+                    <option value="1">1 (SEVERELY Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Agree)</option>
                 </select>
             </div>
-            <div class='form-group'>
+            <div class="form-group">
                 <h3>Question 8 </h3>
-                <label for='q8'> You are a good driver: </label>
+                <label for="q8"> You are a good driver: </label>
                 <br>
-                <select id='q8' name='q8' required>
+                <select id="q8" name="q8" required>
                     <option value></option>
-                    <option value='1'>1 (SEVERELY Disagree)</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5 (Agree)</option>
+                    <option value="1">1 (SEVERELY Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Agree)</option>
                 </select>
             </div>
-            <div class='form-group'>
+            <div class="form-group">
                 <h3>Question 9 </h3>
-                <label for='q9'> You are a useful person: </label>
+                <label for="q9"> You are a useful person: </label>
                 <br>
-                <select id='q9' name='q9' required>
+                <select id="q9" name="q9" required>
                     <option value></option>
-                    <option value='1'>1 (SEVERELY Disagree)</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5 (Agree)</option>
+                    <option value="1">1 (SEVERELY Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Agree)</option>
                 </select>
             </div>
-            <div class='form-group'>
+            <div class="form-group">
                 <h3>Question 10 </h3>
-                <label for='q10'> You answered honestly-ish: </label>
+                <label for="q10"> You answered honestly-ish: </label>
                 <br>
-                <select id='q10' name='q10' required>
+                <select id="q10" name="q10" required>
                     <option value></option>
-                    <option value='1'>1 (Strong Disagree)</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5 (Agree)</option>
+                    <option value="1">1 (Strong Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Agree)</option>
                 </select>
             </div> -->
             </fieldset>
 
 
             <!-- SUBMIT BUTTON  -->
-            <!-- <button type='submit' class='btn btn-primary btn-lg btn-block' id='myButton'>Submit</button> -->
+            <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" id="myButton">Submit</button> -->
 
-            <input type="submit" value="Submit" id='myButton'>
+            <input type="submit" value="Submit" id="myButton">
 
         </form>
 
         <!-- =============== FOOTER ================== -->
-        <div class='container'>
-            <div class='row'>
-                <div class='col-4'>
-                    <a href='/api/friends'>API Friends List</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <a href="/api/friends">API Friends List</a>
                     |
-                    <a href='https://github.com/kellikells/Friend-Finder'>GitHub Repo</a>
+                    <a href="https://github.com/kellikells/Friend-Finder">GitHub Repo</a>
                 </div>
             </div>
         </div>
 
         <!-- ================= MODAL ================= -->
 
-        <div id='myModal' class='modal'>
-            <div class='modal-content'>
-                <div class='modal-header'>
-                    <h2>Your Friend Match!</h2>
-                </div>
-                <div class='modal-body'>
-                    <p id='friendName'></p>
-                    <img id='friendPicture'></img>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="centerTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="centerTitle">Your Friend Match!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="friendName"></p>
+                        <img id="friendPicture" style="max-width:250px"></img>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -216,7 +228,7 @@
 
 </body>
 
-<script type='text/javascript'>
+<script type="text/javascript">
 
     var scores = [];
     var usersScoreArray = [];
@@ -235,7 +247,7 @@
     function getScoresArray() {
         let i = 1;
         while (i < 4) {
-            let oneValue = $('#q' + i + '').val();
+            let oneValue = $("#q" + i + "").val();
             i++;
             scores.push(oneValue);
         }
@@ -243,7 +255,6 @@
     }
 
     // ----- function: add scores 
-
     function getScoreTotal() {
         for (let i = 0; i < scores.length; i++) {
             scoreTotal += (parseInt(scores[i]));
@@ -254,42 +265,43 @@
 
     // ----- Resets the Page
     function resetForm() {
-        $('#name').val('');
-        $('#picture').val('');
-        $('select').each(function () {
+        $("#name").val("");
+        $("#picture").val("");
+        $("select").each(function () {
             $(this).val($(this).find("option[selected]").val());
         });
         scores = [];
         usersScoreArray = [];
         scoreTotal = 0;
+        differencesArray = [];
+        otherTotal = 0;
     }
 
     // ================= FUNCTION: SUBMIT FORM ===============
     // -------------------------------------------------------
-    $('#myButton').on('click', function (event) {
+    $("#myButton").on("click", function (event) {
         event.preventDefault();
         getScoresArray();
         getScoreTotal();
 
         // --- creating the object of data from the survey
-        var user = new Friend($('#name').val().trim(), $('#picture').val().trim(), scoreTotal, scores);
+        var user = new Friend($("#name").val().trim(), $("#picture").val().trim(), scoreTotal, scores);
+
+        friendQuery();
 
         // POST : (route "url", object to send, callback) 
-        // the CALLBACK is the server's response: in apiRoutes that returns compatable match
-        $.post('/api/friends', user, function (response) {
-
-            console.log(`response from POST request: ${response}`);
-
-
+        // the CALLBACK is the server"s response: in apiRoutes that returns compatable match
+        //------------------------------------------------------------------------------------
+        $.post("/api/friends", user, function (response) {
 
             // --- add response to modal ---
-            $('#friendName').text(response.name);
-            $('#friendPicture').attr({
-                'src': response.picture,
-                'alt': response.name
+            $("#friendName").text(response.name);
+            $("#friendPicture").attr({
+                "src": response.picture,
+                "alt": response.name
             });
 
-            $('#myModal').show();
+            $("#myModal").modal("toggle");
 
         });
 
@@ -303,30 +315,33 @@
     var differencesArray = [];
     var otherTotal = 0;
     function friendQuery() {
-        $.ajax({ url: '/api/friends', method: 'GET' })
+        $.ajax({ url: "/api/friends", method: "GET" })
             .then(function (usersData) {
-                console.log(usersData);
                 for (let i = 0; i < usersData.length; i++) {
-                    console.log(usersData[i].scoreTotal);
                     otherTotal = Math.abs(scoreTotal - (usersData[i].scoreTotal));
                     differencesArray.push(otherTotal);
                 }
-                console.log(differencesArray);
+                console.log(`differences array: ${differencesArray}`);
 
-                var x;
-                var z = 0;
-                // while loop
-                while (x != z) {
-                    //for ... of loop
-                    for (x of differencesArray) {
-                        if (x === z) {
-                            console.log(`found match`);
-                            var a = differencesArray.indexOf(x);
-                        } else {
-                            z++;
+                function getIndex() {
+                    var x;
+                    var z = 0;
+                    // while loop
+                    while (x != z) {
+                        //for ... of loop
+                        for (x of differencesArray) {
+                            if (x === z) {
+                                console.log(`found match`);
+
+                                var a = differencesArray.indexOf(x);
+                                console.log(`match index is: ${a}`);
+                            } else {
+                                z++;
+                            }
                         }
                     }
                 }
+                getIndex();
 
             })
     }

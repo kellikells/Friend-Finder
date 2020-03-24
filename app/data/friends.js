@@ -3,8 +3,8 @@ var usersArray = [
     // {
     //     'name': '',
     //     'picture': '',
-    //     'scores': [],
-    //     'scoreTotal': ''
+    //     'scoreTotal': '',
+    //     'scores': []
     // }
 ]
 
