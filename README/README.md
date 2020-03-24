@@ -1,22 +1,30 @@
 # Friend Finder
 
-Presents user with a survey and response options (1-5), upon submission the app compares the user's response with other submission's and displays the "best match" to the user.
+Presents user with a survey and response options (1-5), upon submission the app compares the user's response with prior submission's and displays a "best" friend match for the user.
 
 ============================================================
 ## Technologies utilized:
 - jquery
-<!-- - serializeArray method -->
+- AJAX
+- JSON
 - export & require other files
 - express package
 - path package
 
+
+## Visual Technologies:
+- bootstrap
+- modal component
+- _form_ elements with **selection** options
+
 =============================================================
 
-## Exercise Purposes:
+## Major Concepts:
 - understanding the purpose of routes, data, and user functions
+- GET and POST methods
+- req & res
 - building dynamic html
-- learning bla
-- proof of knowledge about yada 
+- proves an ability to compare and manipulate data, both from the user & stored data
 
 ==============================================================
 
@@ -35,32 +43,3 @@ Caption:
 --------------------------------------------------------------
 
 -------------------------------------------------------------- -->
-
-
-============================================================
-## Technologies utilized:
-- npm inquirer
-- npm mysql
-- MySQL workbench
-
-=============================================================
-
-
-<!-- ### Screenshots of the app's functions:
-
-Javascript code put into MySQL Workbench:
-![initial load](/README/screenshot_1.jpg)
---------------------------------------------------------------
-
---------------------------------------------------------------
-
---------------------------------------------------------------
-
---------------------------------------------------------------
-
---------------------------------------------------------------
-
---------------------------------------------------------------
-
-<!-- -------------------------------------------------------------- -->
-
