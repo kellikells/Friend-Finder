@@ -13,35 +13,16 @@ Presents user with a survey and response options (1-5), upon submission the app 
 =============================================================
 
 ## Exercise Purposes:
-- understanding the purpose of routes, data, and user functions
+- understanding the connection between: routes, data, and user functions
 - building dynamic html
-- learning bla
-- proof of knowledge about yada 
-
-==============================================================
-
-<!-- <!-- ### Screenshots of the app's functions: -->
-
-Caption:
-![text-if-no-load](/README/screenshot_1.jpg)
---------------------------------------------------------------
-
-<!-- --------------------------------------------------------------
-
---------------------------------------------------------------
-
---------------------------------------------------------------
-
---------------------------------------------------------------
-
--------------------------------------------------------------- -->
-
+- using stored data for the purpose of responding to user interaction
 
 ============================================================
 ## Technologies utilized:
 - npm inquirer
 - npm mysql
 - MySQL workbench
+- Express
 
 =============================================================
 
